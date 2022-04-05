@@ -1,0 +1,12 @@
+package com.synex.services;
+
+import com.synex.domain.CoveragePlan;
+
+public interface InsurancePlanServices {
+
+	public CoveragePlan findCoveragePlanById(int coverageTierId);
+	
+	public CoveragePlan saveCoveragePlan(CoveragePlan coveragePlan);
+	
+	public void
+}

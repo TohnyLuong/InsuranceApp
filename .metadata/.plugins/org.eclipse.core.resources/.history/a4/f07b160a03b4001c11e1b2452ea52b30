@@ -1,0 +1,72 @@
+package com.synex.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.node.JsonNodeFactory;
+import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.synex.domain.Claim;
+import com.synex.domain.Document;
+import com.synex.services.ClaimServices;
+import com.synex.services.DocumentServices;
+
+@RestController
+public class ClaimRestController {
+	@Autowired 
+	private DocumentServices documentServices;
+	
+	@Autowired
+	private ClaimServices claimServices;
+	
+	@GetMapping("/")
+	public String get(Model model) {
+		List<Document> docs = documentServices.getFiles();
+		model.addAttribute("docs", docs);
+		return "doc";
+	}
+	
+	@PostMapping("/uploadFiles")
+	public JsonNode uploadMultipleFiles(@RequestBody JsonNode data) {
+		System.out.println("/uploadFiles : "+data);
+		
+		JsonNode node = JsonNodeFactory.instance.objectNode();
+		int numFiles=data.get("numFiles").asInt();
+		for(int i=0; i<numFiles; i++) {
+			((ObjectNode) node)
+				.put("OGfileName", data.get("OGfileName"+i).asText())
+				.put("contentType", data.get("contentType"+i).asText())
+				.put("fileBytes", data.get("fileBytes"+i).asText());
+			
+			documentServices.saveFile(node);
+		}
+		return data;
+	}
+	
+	@GetMapping("/downloadFile")
+	public ResponseEntity<ByteArrayResource> downloadFile(@RequestBody JsonNode data){
+		
+		Claim claim = claimServices.getClaimById(data.get("userId").asLong());
+		
+		List <Document> docs = claim.getDocuments();
+		for(Document docc : docs) {
+		Document doc = documentServices.getFile(docc).get();
+			return ResponseEntity.ok()
+					.contentType(MediaType.parseMediaType(doc.getDocumentType()))
+					.header(HttpHeaders.CONTENT_DISPOSITION,"attachment:filename=\""+doc.getDocumentName()+"\"")
+					.body(new ByteArrayResource(doc.getData()));
+		}
+	}
+}

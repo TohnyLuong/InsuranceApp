@@ -1,0 +1,18 @@
+package com.synex.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.synex.domain.MedicalCondition;
+import com.synex.repository.MedicalConditionRepository;
+
+public class MedicalConditionServiceImpl implements MedicalConditionService {
+
+	@Autowired
+	MedicalConditionRepository medicalConditionRepository;
+	
+	@Override
+	public MedicalCondition save(MedicalCondition medicalCondition) {
+		return medicalConditionRepository.save(medicalCondition);
+	}
+
+}

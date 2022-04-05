@@ -1,0 +1,65 @@
+$(document).ready(function(){
+	var numFamilyMember=2;
+	
+	$("#headerTitleHome").click(function(){
+		window.location.href = "http://localhost:8282/insurance/home";
+	})
+
+	$("#newFamilyMember").click(function(){
+		$("#familyEnrollment").append(
+			"<br/><br/>"+
+			"Family Member "+numFamilyMember+ ":"+ 
+			"<p><input placeholder=\"Family Member ("+numFamilyMember+"): First Name...\" oninput=this.className = '' name=fm"+numFamilyMember+"FN ></p>"+
+		    "<p><input placeholder=\"Family Member ("+numFamilyMember+"): Last Name...\" oninput=this.className = '' name=fm"+numFamilyMember+"LN ></p>"+
+		    "Age:"+
+		    
+		    "<p><input placeholder=\"Family Member ("+numFamilyMember+"): Age...\" oninput=this.className = '' name=fm"+numFamilyMember+"Age></p>"
+		    
+		    /*
+		    "<p><input placeholder=\"Family Member ("+numFamilyMember+"): dd\" oninput=this.className = '' name=fm"+numFamilyMember+"dd></p>"+
+		    "<p><input placeholder=\"Family Member ("+numFamilyMember+"): mm\" oninput=this.className = '' name=fm"+numFamilyMember+"nn></p>"+
+		    "<p><input placeholder=\"Family Member ("+numFamilyMember+"): yyyy\" oninput=this.className = '' name=fm"+numFamilyMember+"yyyy></p>"
+		    */
+		);
+		addNewFamilyMemberCount();
+		quoteNumFamMem=numFamilyMember-1;
+		basicQuote=214.63*quoteNumFamMem;
+		proQuote=247.90*quoteNumFamMem;
+		premiumQuote=301.24*quoteNumFamMem;
+		
+		//$("div").remove("#quote");
+		
+		$("#quote").append(
+			"Basic price: "+"$214.63 x"+quoteNumFamMem+"="+basicQuote+"<br/>"
+		)
+		$("#quote").append(
+			"Pro price: "+"$247.90 x"+quoteNumFamMem+"="+proQuote+"<br/>"
+		)
+		$("#quote").append(
+			"Premium price: "+"$301.24 x"+quoteNumFamMem+"="+premiumQuote+"<br/><br/><br/><br/>"
+		)
+		
+	})
+	
+	/*
+	if(==basic && quoteNumFamMem==1){
+		$("#quote").append(
+			"Basic price: "+"$214.63 x"+quoteNumFamMem+"="+basicQuote+"<br/>"
+		)
+		$("#quote").append(
+			"Pro price: "+"$247.90 x"+quoteNumFamMem+"="+proQuote+"<br/>"
+		)
+		$("#quote").append(
+			"Premium price: "+"$301.24 x"+quoteNumFamMem+"="+premiumQuote+"<br/><br/><br/><br/>"
+		)
+	}
+	*/
+	
+	
+	
+	function addNewFamilyMemberCount(){
+		numFamilyMember=numFamilyMember+1;	
+	}		
+	
+	
+});

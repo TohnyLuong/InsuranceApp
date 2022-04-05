@@ -1,0 +1,22 @@
+package com.synex.repository;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.synex.domain.CoveragePlan;
+
+
+
+public interface CoveragePlanRepository extends JpaRepository<CoveragePlan, Long> {
+	
+	@Transactional
+	@Modifying
+	@Query(
+	  value = 
+	    "insert into coverageplan_benefit (User_userId, familyMembers_familyMemberId) values (?1, ?2)",
+	  nativeQuery = true)
+	public void setRelation(Long coverPlanId, int r1, int r2, int r3, int r4);
+
+}

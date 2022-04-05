@@ -1,0 +1,41 @@
+$(document).ready(function(){
+	
+	let userAndFMBody;
+	
+	showUserAndFM();
+
+	setTimeout(() => {displayUserAndFM()}, 200);
+	
+	
+	function displayUserAndFM(){
+		console.table(userAndFMBody);
+		
+		$(".main-content").append(userAndFMBody);
+		
+		
+	};
+
+	function showUserAndFM(){
+		
+		$.ajax({
+			type : "POST",
+			contentType : "application/json",
+			url : "http://localhost:8282/insurance/showUserAndFM",
+			dataType: "json",
+			data: JSON.stringify({
+					"userName":$("#username").text()
+				}),		
+			cache: false,
+			success : function(result) {
+				 userAndFMBody = result;
+				 //console.log(result);
+				 //console.log(userAndFMBody);
+			},
+			error : function(e) {
+				alert("Error!")
+				console.log("ERROR: showUserAndFM -> ", e);
+			}
+		});
+	};
+	
+})

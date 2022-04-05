@@ -1,0 +1,13 @@
+package com.synex.services;
+
+import com.synex.domain.MedicalCondition;
+
+public class MedicalConditionServiceImpl implements MedicalConditionService {
+
+	@Override
+	public MedicalCondition save(MedicalCondition medicalCondition) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

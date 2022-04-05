@@ -1,0 +1,17 @@
+
+.style1 {
+	border-collapse: collapse;
+}
+.style1 th {
+	background-color: #DDDDDD;
+	white-space: nowrap;
+	width:70%;
+}
+.style1 .d {
+	white-space: nowrap;
+}
+.style1 .n {
+	
+	padding-left: 20px;
+	text-align: right;
+}

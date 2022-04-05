@@ -1,0 +1,44 @@
+package com.synex.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.synex.domain.CoveragePlan;
+import com.synex.services.InsurancePlanServices;
+
+@RestController
+public class InsurancePlanRestController {
+
+	@Autowired
+	private InsurancePlanServices insurancePlanServices;
+	
+	@PostMapping(value="/saveEnrollmentPlan")
+	public JsonNode saveEnrollment(@RequestBody JsonNode data) {
+		System.out.println("save Enrollment Plan");
+		System.out.println(data);
+		CoveragePlan coveragePlan = new CoveragePlan();
+		
+		coveragePlan.setSubmissionId(data.get("userId").asLong());
+		
+		String planType = data.get("planType").asText();
+		if(planType == "Basic") {
+			coveragePlan.setCoverageTier(planType);
+			coveragePlan.setPremium("Primary Care: $20");
+			coveragePlan.setDeductable(2500);
+			coveragePlan.setPurchaseStatus("Awaiting Payment");
+			
+			insurancePlanServices.saveCoveragePlan(coveragePlan);
+		}
+		
+		
+		
+		
+		
+		
+		return data;
+	}
+	
+}

@@ -1,0 +1,9 @@
+package com.synex.services;
+
+import com.synex.domain.Claim;
+
+public interface ClaimServices {
+
+	public Claim save(Claim claim);
+	
+}

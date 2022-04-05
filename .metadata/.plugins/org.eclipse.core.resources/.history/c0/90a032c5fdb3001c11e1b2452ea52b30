@@ -1,0 +1,5 @@
+package com.synex.services;
+
+public interface ClaimServices {
+
+}

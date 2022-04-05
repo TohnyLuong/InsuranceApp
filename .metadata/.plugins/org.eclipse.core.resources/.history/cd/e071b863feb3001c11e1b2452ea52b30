@@ -1,0 +1,28 @@
+package com.synex.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.synex.domain.Claim;
+
+public class ClaimServicesImpl implements ClaimServices {
+
+	@Override
+	public Claim save(Claim claim) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Optional<Claim> getClaimById(Long submissionId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Claim> getClaims() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

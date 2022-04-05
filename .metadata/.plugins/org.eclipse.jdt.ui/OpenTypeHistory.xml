@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<typeInfoHistroy>
+    <typeInfo handle="=InsurancePlanMicroservice/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.synex.services{InsurancePlanServices.java[InsurancePlanServices" modifiers="513" timestamp="1648808285198"/>
+    <typeInfo handle="=InsuranceGateway/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.synex.services{FamilyMemberService.java[FamilyMemberService" modifiers="513" timestamp="1648147160517"/>
+    <typeInfo handle="=InsuranceGateway/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.synex.services{MedicalConditionService.java[MedicalConditionService" modifiers="513" timestamp="1648626846435"/>
+    <typeInfo handle="=ClaimMicroservice/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.synex.repository{ClaimRepository.java[ClaimRepository" modifiers="513" timestamp="1649066871095"/>
+    <typeInfo handle="=ClaimMicroservice/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.synex.services{ClaimServices.java[ClaimServices" modifiers="513" timestamp="1649066968253"/>
+</typeInfoHistroy>

@@ -1,0 +1,15 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.devtools=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.mysql=1
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=InsuranceApp
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.6.4
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=InsuranceApp
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.synex
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=11
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=InsuranceApp
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.synex.demo
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=jar
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=MAVEN
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.version=InsuranceApp
+org.springframework.ide.eclipse.boot.wizard.initializr.url=https\://start.spring.io\n

@@ -1,0 +1,17 @@
+package com.synex.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.web.multipart.MultipartFile;
+
+import com.synex.domain.Document;
+
+public interface DocumentServices {
+
+	public Document saveFile(MultipartFile file);
+	
+	public Optional<Document> getFile(Long fileId);
+	
+	public List<Document> getFiles();
+}

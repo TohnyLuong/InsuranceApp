@@ -1,0 +1,15 @@
+package com.synex.services;
+
+import java.util.List;
+import java.util.Optional;
+
+import com.synex.domain.Claim;
+
+public interface ClaimServices {
+
+	public Claim save(Claim claim);
+	
+	public Optional<Claim> getClaimById(Long submissionId);
+	
+	public List<Claim> getClaims();
+}

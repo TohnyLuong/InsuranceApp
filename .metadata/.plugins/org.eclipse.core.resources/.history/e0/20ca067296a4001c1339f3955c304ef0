@@ -1,0 +1,18 @@
+$(document).ready(function(){
+	
+	
+	$("#headerTitleHome").click(function(){
+		window.location.href = "http://localhost:8282/insurance/home";
+	})
+	
+	const myTimeout = setTimeout(myGreeting, 5000);
+
+	function myGreeting() {
+	  document.getElementById("demo").innerHTML = "Happy Birthday!"
+	}
+	
+	function myStopFunction() {
+	  clearTimeout(myTimeout);
+	}
+	
+});
